@@ -1,21 +1,33 @@
 import React from 'react';
 import Header from './Modules/Header';
-import OptionsFormList from './Modules/OptionsFormList.js';
+import Button from './Modules/Button.js';
 import SummaryForm from './Modules/SummaryForm'
-import FEATURES from './Modules/Features.js'
-
-
-// Normalizes string as a slug - a string that is safe to use
-// in both URLs and html attributes
-
-
 import './App.css';
+import USCurrencyFormat from './Modules/USCurrencyFormat';
 
-// This object will allow us to
-// easily convert numbers into US dollar values
+
 export default class App extends React.Component {
+  // state = {
+  //   selected: {
+  //     Processor: {
+  //       name: '17th Generation Intel Core HB (7 Core with donut spare)',
+  //       cost: 700
+  //     },
+  //     'Operating System': {
+  //       name: 'Ubuntu Linux 16.04',
+  //       cost: 200
+  //     },
+  //     'Video Card': {
+  //       name: 'Toyota Corolla 1.5v',
+  //       cost: 1150.98
+  //     },
+  //     Display: {
+  //       name: '15.6" UHD (3840 x 2160) 60Hz Bright Lights and Knobs',
+  //       cost: 1500
+  //     }
+  //   }
+  // };
   state = {
-    features: FEATURES,
     selected: {
       Processor: {
         name: '17th Generation Intel Core HB (7 Core with donut spare)',
@@ -36,12 +48,12 @@ export default class App extends React.Component {
     }
   };
   updateFeature = (feature, newValue) => {
-        const selected = Object.assign({}, this.state.selected);
-        selected[feature] = newValue;
-        this.setState({
-          selected
-        });
-      };
+    const selected = Object.assign({}, this.state.selected);
+    selected[feature] = newValue;
+    this.setState({
+        selected
+    });
+  };
   
       
       
@@ -50,10 +62,10 @@ export default class App extends React.Component {
       <div className='App'>
         <Header />
         <main>
-          <OptionsFormList 
-            features={this.state.features}
+          <Button  
+            formatCurrency={USCurrencyFormat.format}
             selected={this.state.selected}
-            updatedFeature={this.updatedFeature}
+            update={this.updateFeature}
           />
           <SummaryForm
             selected={this.state.selected}
