@@ -1,7 +1,7 @@
 import React from 'react';
 import FEATURES from './Features';
 import slugify from 'slugify';
-import Buttons from './Button';
+import Buttons from './Buttons';
 
 
 export default function Button(props) {    
@@ -22,10 +22,10 @@ export default function Button(props) {
             />
             <label htmlFor={itemHash} className="feature__label">
               {item.name} ({props.formatCurrency(item.cost)})
-          </label>
+            </label>
           </div>
         );
-    });
+    })
       return (
         <Buttons 
         key={featureHash}
