@@ -1,5 +1,5 @@
 import React from 'react';
-import FEATURES from './Features';
+import FEATURES from '../Features/Features';
 import slugify from 'slugify';
 import Buttons from './Buttons';
 

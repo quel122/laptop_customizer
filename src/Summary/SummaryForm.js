@@ -1,7 +1,7 @@
 import React from 'react';
 import SummaryCost from './SummaryCost';
 import SummaryTotal from './SummaryTotal';
-import USCurrencyFormat from './/USCurrencyFormat'
+import USCurrencyFormat from '../USCurrencyFormat'
 
 function Summary(props) {
     return (
